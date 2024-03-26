@@ -13,10 +13,11 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
-    private CustomerOrderBaseService customerOrderBaseService;
-    @Transactional
+    private CustomerService customerService;
+
+    //todo:這邊的事物管理未來會使用Seata的@GlobalTransactional
     @Override
     public List<CustomerDTO> findAll() {
-        return customerOrderBaseService.findAll();
+        return customerService.findAll();
     }
 }
