@@ -22,7 +22,7 @@ public class Controller {
 
         private String url;
 
-        @GetMapping("/Customer/findAll")
+        @GetMapping("/customer/findAll")
         public List<CustomerDTO> findAll() throws TimeoutException {
           return  customerService.findAll();
         }

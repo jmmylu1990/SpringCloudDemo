@@ -13,7 +13,7 @@ public class Controller {
 
     @Autowired
     private CustomerService customerService;
-    @GetMapping("/Customer/findAll")
+    @GetMapping("/customer/findAll")
     public List<Customer> findAll(){
         System.out.println("抓");
         return customerService.findAll();

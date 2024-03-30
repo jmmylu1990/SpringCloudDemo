@@ -24,26 +24,28 @@ public class CustomerServiceImpl implements CustomerService {
     //todo:這邊的事物管理未來會使用Seata的@GlobalTransactional
     @Override
     @CircuitBreaker(name = "customer-order-base")
-    @Retry(name = "findAllService")
-    public List<CustomerDTO> findAll() throws TimeoutException {
-        System.out.println("A");
-
-        longRunRandomly();
-        System.out.println("B");
+//    @Retry(name = "findAllService")
+    public List<CustomerDTO> findAll(){
+        try {
+            longRunRandomly();
+        } catch (TimeoutException e) {
+            log.error("系統異常");
+//            throw new RuntimeException();
+        }
         return customerOrderBaseService.findAll();
     }
     //模擬連線超時
     private static void longRunRandomly() throws TimeoutException {
-        int max = 3;
+        int max = 2;
         int min = 1;
         int randomNum = new Random().nextInt((max - min + 1) + min);
         log.info("randomNum:{}",randomNum);
-        if (randomNum == 3) sleep();
+        if (randomNum == 2) sleep();
     }
 
     private static void sleep() throws TimeoutException {
         try {
-            System.out.println("Sleeping......ZZZ");
+            log.info("Sleeping......ZZZ");
             Thread.sleep(5000);
             throw new TimeoutException();
         } catch (InterruptedException ex) {
