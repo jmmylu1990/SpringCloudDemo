@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient("Customer-OrderBase")
+@FeignClient("customer-order-base")
 public interface CustomerOrderBaseService {
 
     @RequestMapping(value="/Customer/findAll", method=RequestMethod.GET)
