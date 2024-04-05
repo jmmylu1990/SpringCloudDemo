@@ -10,12 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @FeignClient("customer-order-base")
-@Retry(name = "customer-order-base")
 public interface CustomerOrderBaseService {
 
     @RequestMapping(value="/customer/findAll", method=RequestMethod.GET)
     List<CustomerDTO> findAll();
-
-
-
 }
