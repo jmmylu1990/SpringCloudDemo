@@ -2,7 +2,6 @@ package com.example.customerorderbase.mysql.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.io.Serializable;

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -17,5 +16,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<Customer> findAll() {
         return customerRepository.findAll();
+    }
+
+    @Override
+    public Customer save(Customer customer) {
+        Customer customer2 = customerRepository.save(customer);
+        return customer2;
     }
 }

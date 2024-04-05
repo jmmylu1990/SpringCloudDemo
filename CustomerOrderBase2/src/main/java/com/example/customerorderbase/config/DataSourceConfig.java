@@ -67,6 +67,6 @@ public class DataSourceConfig {
 
     @Bean
     public PlatformTransactionManager mysqlTransactionManager(EntityManagerFactory mysqlEntityManagerFactory) {
-        return new JpaTransactionManager((jakarta.persistence.EntityManagerFactory) mysqlEntityManagerFactory);
+        return new JpaTransactionManager((EntityManagerFactory) mysqlEntityManagerFactory);
     }
 }
